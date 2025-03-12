@@ -4,6 +4,8 @@ import asyncio
 
 from dotenv import load_dotenv
 
+load_dotenv()
+
 class ChipManager:
     _instance = None
     _lock = asyncio.Lock()

@@ -2,6 +2,8 @@ import json
 import os
 import asyncio
 
+from dotenv import load_dotenv
+
 class ChipManager:
     _instance = None
     _lock = asyncio.Lock()
@@ -14,7 +16,7 @@ class ChipManager:
     
     def _initialize(self):
         self.users = {}
-        self.default_chips = 1000
+        self.default_chips = os.getenv('DEFAULT_CHIPS', 1000)
         self.chip_file = 'chips.json'
         self._load_chips()
         
